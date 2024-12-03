@@ -1,7 +1,7 @@
 import re
 
 sum = 0
-dont = False
+skip_multiplication = False
 
 with open('Day3-input.txt', 'r') as file:
 
@@ -11,10 +11,10 @@ with open('Day3-input.txt', 'r') as file:
 
         for match in matches:
             if match[0] == 'do()':
-                dont = False
+                skip_multiplication = False
             elif match[0] == "don't()":
-                dont = True                
-            elif dont:
+                skip_multiplication = True                
+            elif skip_multiplication:
                 continue
             elif match[0].startswith("mul"):
                 num1, num2 = int(match[1]), int(match[2])
