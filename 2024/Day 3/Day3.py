@@ -10,12 +10,11 @@ with open('Day3-input.txt', 'r') as file:
         matches = findall(pattern, line)
 
         for match in matches:
-
-            if match[0] == 'do()':
+            if match[0] == "do()":
                 skip_multiplication = False
             elif match[0] == "don't()":
                 skip_multiplication = True
-                             
+
             elif match[0].startswith("mul"):
                 num1, num2 = int(match[1]), int(match[2])
                 Part1 += num1 * num2
