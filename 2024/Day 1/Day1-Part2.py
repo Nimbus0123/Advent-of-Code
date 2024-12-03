@@ -2,7 +2,7 @@ list1 = []
 list2 = []
 sum = 0
 
-with open('input.txt', 'r') as file:
+with open('Day1-input.txt', 'r') as file:
     for line in file:
         line = line.split()
         first_id = int(line[0])
@@ -21,4 +21,4 @@ for first_number in list1:
     sum += first_number * appearances
     appearances = 0
 
-print(sum)
+print(f"Total distance: {sum}")

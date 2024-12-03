@@ -2,7 +2,7 @@ list1 = []
 list2 = []
 sum = 0
 
-with open('input.txt', 'r') as file:
+with open('Day1-input.txt', 'r') as file:
     for line in file:
         line = line.split()
         first_id = int(line[0])
@@ -17,4 +17,4 @@ for index in range(len(list1)):
     difference = abs(list1[index] - list2[index])
     sum += difference
 
-print(sum)
+print(f"Total distance: {sum}")
