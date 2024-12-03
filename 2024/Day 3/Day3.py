@@ -1,15 +1,19 @@
-import re
+from re import findall
 
-sum = 0
+Part1, Part2 = 0, 0
 skip_multiplication = False
 
 with open('Day3-input.txt', 'r') as file:
 
     for line in file:
         pattern = r"(mul\((\d+),\s*(\d+)\)|do\(\)|don't\(\))"
-        matches = re.findall(pattern, line)
+        matches = findall(pattern, line)
 
         for match in matches:
+            if match[0].startswith("mul"):
+                num1, num2 = int(match[1]), int(match[2])
+                Part1 += num1 * num2   
+
             if match[0] == 'do()':
                 skip_multiplication = False
             elif match[0] == "don't()":
@@ -18,6 +22,7 @@ with open('Day3-input.txt', 'r') as file:
                 continue
             elif match[0].startswith("mul"):
                 num1, num2 = int(match[1]), int(match[2])
-                sum += num1 * num2
+                Part2 += num1 * num2
 
-    print(f"Sum of multiplications: {sum}")
+    print(f"Part 1: {Part1}")
+    print(f"Part 2: {Part2}")

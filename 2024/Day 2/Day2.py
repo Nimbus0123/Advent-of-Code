@@ -1,4 +1,4 @@
-safe_reports = 0
+Part1, Part2 = 0, 0
 
 with open('Day2-input.txt', 'r') as file:
     for line in file:
@@ -7,7 +7,7 @@ with open('Day2-input.txt', 'r') as file:
 
         possible_lines = [line] + [line[:i] + line[i+1:] for i in range(len(line))]
 
-        for variation in possible_lines:
+        for index, variation in enumerate(possible_lines):
             decreasing = True
             increasing = True
             is_safe = True
@@ -29,7 +29,10 @@ with open('Day2-input.txt', 'r') as file:
                     if (variation[i] < variation[i-1]) or (abs(variation[i] - variation[i-1]) > 3) or (abs(variation[i] - variation[i-1]) == 0):
                         is_safe = False
             if is_safe == True:
-                safe_reports += 1
+                Part2 += 1
+                if index == 0:
+                    Part1 += 1
                 break
 
-print(f"Safe Reports: {safe_reports}")
+print(f"Part 1: {Part1}")
+print(f"Part 2: {Part2}")

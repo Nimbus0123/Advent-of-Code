@@ -1,6 +1,6 @@
 list1 = []
 list2 = []
-sum = 0
+Part1, Part2 = 0, 0
 
 with open('Day1-input.txt', 'r') as file:
     for line in file:
@@ -14,11 +14,13 @@ list1.sort()
 list2.sort()
 appearances = 0
 
-for first_number in list1:
+for index, first_number in enumerate(list1):
     for second_number in list2:
         if first_number == second_number:
             appearances += 1
-    sum += first_number * appearances
+    Part2 += first_number * appearances
+    Part1 += abs(list1[index] - list2[index])
     appearances = 0
 
-print(f"Total distance: {sum}")
+print(f"Part 1: {Part1}")
+print(f"Part 2: {Part2}")
