@@ -6,7 +6,7 @@ skip_multiplication = False
 with open('Day3-input.txt', 'r') as file:
 
     for line in file:
-        pattern = r"(mul\((\d+),\s*(\d+)\)|do\(\)|don't\(\))"
+        pattern = r"(mul\((\d+),(\d+)\)|do\(\)|don't\(\))"
         matches = findall(pattern, line)
 
         for match in matches:
